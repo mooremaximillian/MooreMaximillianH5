@@ -4,7 +4,7 @@
 
 public class Node
 {
-  // initializes the names that will be included in lists
+  // initializes the names that will b included in lists
   String name;
  // intializes the next node
   Node next;
