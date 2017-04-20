@@ -1,3 +1,4 @@
+import java.util.Random;
 /**
  * List Class to make methods to operate on the doubly linked list
  */ 
@@ -26,7 +27,7 @@ public class List
   * @param the new String that is a assigned to the node
   * @return void
   */ 
- public void addNode(String n)
+ public void addNode(int n)
  {
    if(isEmpty())
    {
@@ -42,31 +43,37 @@ public class List
    
  }
  
- /** adds a new node to the list in alphabetical order
-   * @param the name of the new node
-   * @return void
-   */ 
- public void addAlphabetical(String n)
+ public void addRandom()
  {
-   Node newNode = new Node(n);
-   
-   Node current = head;
-   Node previous = null;
-   
-   while(current != null && n.compareTo(current.getName()) >= 0){
-        previous = current;
-        current = current.next;
-    }
-
-    if(previous == null){
-        head = newNode;
-    }else{
-        previous.next = newNode;
-       
-    }
-     newNode.next = current;
- 
+   Random rand = new Random();
+   if(isEmpty())
+   {
+     tail = new Node(rand.nextInt(100));
+     head = tail;
+   }
+   else
+   {
+     tail.next = new Node(rand.nextInt(100), null, tail);
+     tail = tail.next;
+   }
  }
+ 
+ public void sortRandom()
+ {
+   
+     for(int i =1; i<input.length; i++)
+        for(int j = i; j>0; j--)
+        if(input[j] < input[j-1])
+      { int tmp = input[j];
+           input[j]= input[j-1];
+           input[j-1]=tmp;
+      }
+        
+        
+        return input;
+     
+ }
+ 
  
  
    /**
@@ -74,9 +81,9 @@ public class List
     * @param the name of the Node
     * @return void
     */ 
-    public void findNode(String name){
+    public void findNode(int number){
         Node currentNode = head;
-        while(currentNode.getName()!= name)
+        while(currentNode.getNumber()!= number)
         {
             currentNode = currentNode.getNext();
             if(currentNode == null)
@@ -93,13 +100,13 @@ public class List
   * @param - input of node to be deleted
   * @return boolean wether it has been deleted or not
   */ 
- public boolean deleteNode(String element)
+ public boolean deleteNode(int element)
  {
    if(isEmpty())
      return false;
    
    Node target = head;
-   while(target != null && !element.equals(target.name))
+   while(target != null && (element != target.getNumber()))
      target = target.next;
    
    if(target == null)
@@ -128,7 +135,7 @@ public class List
     else {
       Node tmp = this.head;
       while (tmp != null) {
-        System.out.println(tmp);
+        System.out.println(tmp.getNumber());
         tmp = tmp.getNext();
       }
       System.out.println("");
