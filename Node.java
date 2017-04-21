@@ -5,7 +5,7 @@
 public class Node
 {
   // initializes the names that will b included in lists
-  String name;
+  int number;
  // intializes the next node
   Node next;
  //initializes the prev node
@@ -13,16 +13,16 @@ public class Node
  
  
  //Consturctor to input a new name 
- public Node(String name, Node n, Node p)
+ public Node(int number, Node n, Node p)
  {
    next = n;
-   this.name = name;
+   this.number = number;
    prev = p;
  }
  /**
   * Constructor to just input the string
   */ 
- Node(String n)
+ Node(int n)
  {
    this(n, null, null);
  }
@@ -39,9 +39,9 @@ public class Node
    return prev;
  }
  
- public String getName()
+ public int getNumber()
  {
-   return name;
+   return number;
  }
  
  
@@ -55,15 +55,13 @@ public class Node
    this.prev = node;
  }
  
- public void setName(String name)
+ public void setName(int number)
  {
-   this.name = name;
+   this.number = number;
    
  }
  
- public String toString() {
-  return " Name : "+this.name;
+ 
  }
   
                        
-}

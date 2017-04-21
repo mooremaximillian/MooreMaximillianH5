@@ -46,7 +46,8 @@ public class List
  public void addRandom()
  {
    Random rand = new Random();
-   if(isEmpty())
+    
+     if(isEmpty())
    {
      tail = new Node(rand.nextInt(100));
      head = tail;
@@ -58,13 +59,21 @@ public class List
    }
  }
  
- public void sortRandom()
+ public int size() {
+   int size = 0;
+   for(Node n = head; n.next != null; n = n.next)
+       size++;     
+   return size;
+}
+ 
+/** public void sortRandom()
  {
    
-     for(int i =1; i<input.length; i++)
+     for(int i =1; i< size(); i++)
         for(int j = i; j>0; j--)
-        if(input[j] < input[j-1])
-      { int tmp = input[j];
+        if(head.getNumber() < input[j-1])
+      { 
+       int tmp = input[j];
            input[j]= input[j-1];
            input[j-1]=tmp;
       }
@@ -72,7 +81,38 @@ public class List
         
         return input;
      
- }
+ }**/
+ 
+ public void bubbleSort()
+{
+  for (int i = 0; i < size(); i++)
+  {
+    for (int j = i; j < size(); j++)
+    {
+       if (elementAt(j).getNumber() < (elementAt(j+1).getNumber()))
+       {
+         Node temp = elementAt(j);
+         elementAt(j) = elementAt(j-1);
+         elementAt(j-1) = temp;
+        // switch j with j-1  
+       }
+    }
+  }
+}
+ 
+
+ 
+ public Node elementAt(int index)
+{
+   Node temp = head;
+
+   for (int i = 0; i < index; i++)
+   {
+      temp = temp.getNext();
+   }
+
+   return temp;
+}
  
  
  
