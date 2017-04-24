@@ -55,7 +55,7 @@ public class Node
    this.prev = node;
  }
  
- public void setName(int number)
+ public void setNumber(int number)
  {
    this.number = number;
    

@@ -9,13 +9,19 @@ public class Main
    newList.addRandom();
    newList.addRandom();
    newList.addRandom();
+   newList.addRandom();
+   newList.addRandom();
+  
+   newList.iterateForward();
+   
+   newList.bubbleSort();
    
    newList.iterateForward();
    
    
    
  
-   newList.iterateForward();
+
    
 
    

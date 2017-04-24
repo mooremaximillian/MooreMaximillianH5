@@ -66,22 +66,7 @@ public class List
    return size;
 }
  
-/** public void sortRandom()
- {
-   
-     for(int i =1; i< size(); i++)
-        for(int j = i; j>0; j--)
-        if(head.getNumber() < input[j-1])
-      { 
-       int tmp = input[j];
-           input[j]= input[j-1];
-           input[j-1]=tmp;
-      }
-        
-        
-        return input;
-     
- }**/
+
  
  public void bubbleSort()
 {
@@ -89,19 +74,24 @@ public class List
   {
     for (int j = i; j < size(); j++)
     {
-       if (elementAt(j).getNumber() < (elementAt(j+1).getNumber()))
+       if (elementAt(j).getNumber() < (elementAt(j-1).getNumber()))
        {
-         Node temp = elementAt(j);
-         elementAt(j) = elementAt(j-1);
-         elementAt(j-1) = temp;
-        // switch j with j-1  
+       
+         int tmp = elementAt(j-1).getNumber();
+         elementAt(j-1).setNumber(elementAt(j).getNumber());
+         elementAt(j).setNumber(tmp);
+         
+           
        }
     }
   }
 }
  
-
  
+ 
+
+
+
  public Node elementAt(int index)
 {
    Node temp = head;
